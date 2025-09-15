@@ -1,1 +1,66 @@
+@echo off
+:: Parâmetro para permitir a leitura e exibição de caracteres especiais
+chcp 65001 >null
+
+title Instalador Automático - Apps
+
+echo              ================================================================================
+echo                                 Script feito por Daniel da Silva Soares
+echo              ================================================================================
+
+echo.
+
+
+:: Inicia a instalação do Google Chrome
+echo Instalando Google Chrome...
+start /wait C:\Script_maquina_nova\ChromeSetup.exe /silent /install
+echo Instalação do Google Chrome concluída!
+
+timeout /t 2 /nobreak
+
+:: Inicia a instalação do 7-Zip
+echo Instalando 7-Zip...
+msiexec /i "C:\Script_maquina_nova\7z2501-x64.msi" /quiet /norestart
+echo Instalação do 7-Zip concluída!
+
+timeout /t 2 /nobreak
+
+:: Inicia a instalação do Firefox
+echo Instalando Firefox...
+msiexec /i "C:\Script_maquina_nova\Firefox Setup 142.0.1.msi" /quiet /norestart
+
+timeout /t 2 /nobreak
+
+:: Inicia a instalação do VLC
+echo Instalando VLC...
+start /wait C:\Script_maquina_nova\vlc-3.0.21-win64.exe /S
+
+timeout /t 2 /nobreak
+
+echo Instalando Lightshot...
+start /wait C:\Script_maquina_nova\setup-lightshot.exe /VERYSILENT /NORESTART /SP- /SUPPRESSMSGBOXES
+echo Lightshot instalado!
+
+timeout /t 2 /nobreak
+
+:: Inicia a instalação do Adobe Reader
+echo Instalando Adobe Reader...
+start /wait C:\Script_maquina_nova\AcroRdrDC2500120693_pt_BR.exe /sAll /rs /msi EULA_ACCEPT=YES
+echo Adobe Reader instalado!
+
+
+:: Pausa para dar tempo de ver a mensagem
+timeout /t 2 /nobreak
+
+:: Inicia a instalação do Office 365
+echo Instalando Office 365...
+cd /d C:\Executar\Office
+start /wait setup.exe /configure configuration-Office365-x64.xml
+echo Instalação do Office concluída!
+
+
+:: Finaliza o processo
+echo Todas as instalações foram concluídas com sucesso!
+timeout /t 5 /nobreak
+exit
 
