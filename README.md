@@ -18,10 +18,12 @@ Abra o Bloco de Notas.
 
 Escreva seus comandos normalmente, por exemplo:
 
- ``` @echo off ```
- ``` echo Limpando arquivos temporários... ```
- ``` del /s /q %TEMP%\* ```
- ``` exit ```
+```
+@echo off
+echo Limpando arquivos temporários...
+del /s /q %TEMP%\* ```
+exit
+```
 
 ### Salve o arquivo com a extensão .bat:
 
@@ -42,7 +44,7 @@ Escreva seus comandos normalmente, por exemplo:
 - Instalam aplicativos em Program Files
 - Para garantir o funcionamento completo dos scripts, execute-os como administrador.
 
-##💡 Dica
+## 💡 Dica
 
 - Você pode agendar scripts para rodarem automaticamente via Agendador de Tarefas do Windows.
 
