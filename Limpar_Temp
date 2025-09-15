@@ -1,0 +1,33 @@
+@echo off
+:: Parâmetro para permitir a leitura e exibição de caracteres especiais
+chcp 65001 >null
+
+title Limpando arquivos temporários
+echo ======================================
+echo     Limpando TEMP do usuário...
+echo ======================================
+timeout /t 2 >nul
+
+:: Limpa arquivos e pastas da pasta TEMP do usuário
+del /s /f /q "%TEMP%\*.*"
+for /d %%i in ("%TEMP%\*") do rd /s /q "%%i"
+
+echo TEMP do usuário limpo!
+echo.
+
+echo ======================================
+echo     Limpando TEMP do sistema...
+echo ======================================
+timeout /t 2 >nul
+
+:: Limpa arquivos e pastas da pasta TEMP do sistema
+del /s /f /q "C:\Windows\Temp\*.*"
+for /d %%i in ("C:\Windows\Temp\*") do rd /s /q "%%i"
+
+echo TEMP do sistema limpo!
+echo.
+echo ======================================
+echo        Limpeza concluída!
+echo ======================================
+timeout /t 2 >nul
+exit
