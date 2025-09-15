@@ -1,0 +1,21 @@
+@echo off
+title Abrir URLs e Apps
+
+:: Abrindo URLs
+echo Abrindo URLs...
+start "" "https://servicedesk.findes.org.br/index.php?redirect=%2Ffront%2Fcentral.php&error=3"
+start "" "https://admin.cloud.microsoft/?#/homepage"
+
+:: Abrindo FortiClient e aguardando fechar
+echo Abrindo FortiClient...
+cd "C:\Program Files\Fortinet\FortiClient"
+start /wait "" FortiClient.exe
+
+timeout /t 7 >nul
+
+:: Abrindo 3CX após o FortiClient fechar
+echo Abrindo 3CX...
+cd "C:\Program Files (x86)\3CXPhone"
+start "" 3CXPhone.exe
+
+exit
